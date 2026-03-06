@@ -69,8 +69,13 @@ return await resp.json();
 btnGet.addEventListener("click", httpGetWeather);
 btnPost.addEventListener("click", httpPostSimulado);
 btnCity.addEventListener("click", async function(){
+console.log("Botão 'Buscar clima' clicado!");
 const city = (cityEl.value || "").trim();
-if (!city) return showCity("Digite uma cidade.");
+if (!city) {
+        console.log("Cidade vazia, chamando showCity."); 
+        return showCity("Digite uma cidade.");
+    }
+console.log("Buscando clima para:", city);
 showCity("Buscando...");
 try {
 localStorage.setItem("lastCity", city);
